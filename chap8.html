@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!-- 챕터8 내용 : 표, 폼 양식 입력 태그-->>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="chap8.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        table 태그 = tr : 행(줄), td : 열(각 칸), th : 제목행(자동 볼드처리 됨)
+        border-collapse: collapse; 옵션을 통해 선의 띄어짐을 없앨 수 있음
+        colspan = "값" : 해당 값만큼 해당 줄 셀 병합
+        rowspan = "값" : 해당 값만큼 해당 행의 셀들을 병합
+        caption = 테이블의 제목 캡션
+        headers = th의 id를 상속받아 자식요소 tr, td 등에서 id를 사용할 수 있음, 구분용이라 딱히 기능은 없음
+        theade, tbody, tfoot = 테이블내의 헤더, 바디, 푸터에 해당하며 딱히 기능은 없고 내부 구분용
+    -->>
+    <table>
+        <caption> 테이블의 제목 </caption>
+        <tr>
+            <th colspan="2"> 데이터 리스트</th>
+        </tr>
+        <tr>
+            <td> 타입 </td>
+            <td> 값 </td>
+        </tr>
+        <tr>
+            <td> 알파벳 </td>
+            <td> A </td>
+        </tr>
+        <tr>
+            <td> 숫자 </td>
+            <td> 7 </td>
+        </tr>
+    </table>
+
+    <!-- FORM 태그  : 인풋태그에서 입력받은 내용을 서버로 전송하기 위한 랩핑용 태그
+        method = POST(암호화) or GET (비암호화) 방식 선택 
+        type = email, password 등 입력 양식에 맞게 알아서 유효성 검사, 땡땡이 등 처리해줌
+        type="submit" : 데이터를 전송하게하며, 버튼과 같이 사용 
+        name = 입력받은 데이터의 값을 name에 저장하여, 다른URL에서 name을 기준으로 쉽게 데이터를 참조함
+        target = 폼태그에서 데이터를 처리할지 새창에서 할지 정함
+        action = 폼의 동작 완료시 이동할 경로
+        autocomplete = 입력 양식 자동완성 기능 ON/OFF 가능
+
+    -->
+    <form action="/login" method="POST">
+        <input type="email" name="email">
+        <input type="password" name="password">
+        <button type="submit"> Login</button>
+    </form>
+    <br>
+    <!-- INPUT태그 
+        autofocus = 태그만 쓰면 해당 인풋창이 선택된 상태로 표시됨
+        maxlength = 해당 인풋에서 입력가능한 최대 텍스트수 제한
+        type = 입력받을 데이터의 종류를 지정 가장 중요하며, 종류가 많음
+
+    -->
+    <form action="/login" id="login-form">
+        <input type="text" autofocus maxlength="6">
+    </form>
+    <br>
+
+    <form action="/login" method="GET">
+        <input type="email" name="id">
+        <input type="password" name="password">
+        <input type="submit" value="로그인">
+        <input type="reset" value="초기화"> <!-- 해당 폼태그안의 입력값들만 초기화 가능-->
+    </form>
+
+    <input type="text">
+    <br>
+    <input type="number" value="1234" readonly>
+    <!--숫자만 입력 가능한 속성, 수정불가하고 읽기만 가능
+        value를 통해 기본값 지정이 가능함
+    -->
+    <input type="number" placeholder="숫자만 입력하세요 최대값8" max="8" step="2">
+    <!-- placeholder = iOS앱개발의 개념과 동일, 값 입력시 사라지는 힌트
+        max, min = 입력 가능한 숫자의 최대값, 최소값 
+        step = 값 증가 단위
+        type =  number 은 숫자 증/감 바가 자동으로 추가됨
+    -->
+    <br>
+
+    <input type="checkbox" checked>
+    <!--checked 값 추가시 체크박스가 디폴트로 선택됨-->
+    <br>
+    <input type="file" multiple>
+    <!-- 파일 입력 가능, form태그를 이용해 서버로 전송도 가능 
+        multiple = 여러개의 파일 선택 가능
+    -->
+    <br>
+
+    <!-- image를 form태그로 감싸서 이미지 터치시 링크가 열리게 설계 가능-->
+    <form action="/login">
+        <input type="image" src="./img/back.jpg" alt="풍경">
+    </form>
+    <br>
+
+    <!-- radio는 체크 선택 후 해제가 불가능함 택일이 필요한 상황에서 사용
+        fieldset = 인풋 양식을 묶어서 화면에 그룹핑 해주는 랩핑용 태그
+        legend = fielset의 제목과 같은 개념으로 최상단에 표시
+    -->
+    <fieldset>
+        <legend>설문 조사 </legend>
+        <input type="radio" name="radio">
+        <br>
+        <input type="radio" name="radio" checked>
+        <br>
+        <input type="radio" name="radio">
+        <br>
+
+    </fieldset>
+
+    <!-- 
+        label로 값을 감싸면 input과 label을 같은 요소로 간주함
+        체크박스 예시, 텍스트만 눌러도 체크박스가 선택/해제됨 
+        for "id"(방법1) 혹은 label 태그로 감싸면 참조 기능이 활성화됨 -->
+    <input type="checkbox" id="user-agreement" />
+    <label for="user-agreement">동의하십니까?</label>
+    <br>
+    <!-- 라벨 가능 요소를 포함 -->
+    <label><input type="checkbox" />동의하십니까?</label>
+    <br>
+    <label>
+        검색 <input type="search">
+    </label>
+    <br>
+
+    <!-- 버튼 실행시 얼럿창이 뜨는 예제-->
+    <button onclick="doit()">클릭하세요!</button> <br>
+    <script>
+        function doit() {
+            alert('Buttion is clicked!')
+        }
+    </script>
+
+    <!-- textarea = 여러줄의 텍스트를 입력받을시에 사용하
+        rows = 기본으로 노출되는 텍스트 입력줄 개수
+        사용자가 우측하단 화살표를 통해 텍스트 입력창으 크기를 바꿀 수 있음
+        는 태그-->
+    <textarea rows="10" placeholder="글을 작성해주세요!"> </textarea> <br>
+
+    <!-- select : 화살표 터치시 옵션을 선택할 수 있는 목록이 드롭다운되는 입력 양식
+        multiple = 옵션 다중 선택 가능
+        size = 기본으로 값이 노출될 개수 
+        option = 옵션 목록을 그룹 제목, label 값으로 쓰거나 걍쓰면 됨) 
+        disabled = 해당 값만 선택 불가능하도록 회색 처리
+        selected = 기본으로 선택되는 값
+    -->
+    <select multiple size="3">
+        <optgroup label="Coffee">
+            <option selected>Americano</option>
+            <option>Caffe Mocha</option>
+            <option label="Cappuccino" value="Cappuccino"></option>
+        </optgroup>
+        <optgroup label="Latte" disabled>
+            <option>Caffe Latte</option>
+            <option>Vanilla Latte</option>
+        </optgroup>
+        <optgroup label="Smoothie">
+            <option>Plain</option>
+            <option>Strawberry</option>
+            <option>Banana</option>
+            <option>Mango</option>
+        </optgroup>
+    </select> <br>
+
+    <!-- datalist : 자동완성에 제공할 목록을 정의하는 태그 
+    input에 값 입력시 id를 기준으로 미리 생성한 datalist를 보여줌
+    -->
+    <input type="text" list="fruits">
+
+    <datalist id="fruits">
+        <option>Apple</option>
+        <option>Orange</option>
+        <option>Banana</option>
+        <option>Mango</option>
+        <option>Fineapple</option>
+    </datalist> <br>
+
+    <!-- PROGRESS : 로딩바 
+    -->
+    <progress value="70" max="100"> </progress>
+
+</body>
+
+</html>

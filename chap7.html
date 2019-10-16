@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- 챕터7 내용 : 멀티미디어 제어, API, JS관련 태그-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="chap7.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        img 태그 
+        alt = 사진  마우스오버시 출력할 텍스트
+        height, widht = html 자체에서도 이미지 크기 설정 가능 물론 CSS도 가능함
+        
+        아래 두 속성은 IE에서 지원하지 않아 주로 CSS의 미디어 쿼리를 사용함
+        srcset = 브라우저에서 사용할 이미지들의 경로를 지정하는 속성, 작은 사이즈부터 기재함
+        sizes = 미디어 조건과 함께 각 조건에 맞춰 뿌려줄 이미지의 크기 지정 
+
+        
+    -->
+    <img src="./img/back.jpg" alt="엄마 서류" height="200"> <br>
+
+    <img srcset="./img/heropy_small.png 400w,
+          ./img/heropy_medium.png 700w,
+          ./img/heropy_large.png 1000w" src="./img/heropy.png" alt="HEROPY" /> <br>
+
+
+    <!-- 
+        audio, vidoe 공통 속성 
+            src : 파일 경로 지정
+            autoplay : 접속시 바로 재생
+            muted : 음소거 상태로 재생
+            controls : 음량, 재생/정지 컨트롤바 출력 
+        video 속성 
+            poster : 동영상 재생전 노출되는 섬네일 이미지 지정
+    -->
+    <audio muted controls src="https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3">
+
+    </audio>
+
+    <!-- 
+        figure = 멀티미디어의 영역을 지정
+        figure cation = 멀티미디어 자료의 캡션 텍스트 추가 
+        
+    -->
+    <figure>
+        <video src="https://interactive-examples.mdn.mozilla.net/media/examples/flower.webm" controls loop muted
+            poster="./img/heropy.png">
+        </video>
+        <figcaption>MDN에서 퍼온 동영상 예제</figcaption>
+    </figure>
+
+    <!-- 
+        ifram = 다른 사이트를 내 사이트안에 띄우는 기능, 웹뷰와 비슷한 개념
+        frameborder = 아이프레임에 외곽선 설정 여부 0, 1로 ON/OFF
+        sandbox = 아이프레임내에서 JS, 폼 제출 등의 기능을 허용할지 설정 가능, 보안 옵션의 개념
+        
+    -->
+    <div>
+        <p> 아이프레임 테스트용, 여기까지가 내가쓴거</p>
+    </div>
+    <div> <iframe src="https://www.inflearn.com/instructors/48957/courses" width="1524" height="606"></iframe></div>
+
+    <!-- 
+        CANVAS : JS를 통해 좌표를 이동해 그림을 그릴 수 있게하는 태그, JS로만 제어 가능
+        아래 예제는 빨강/파랑 박스를 겹쳐서 그리는 코드 예제
+
+    -->
+
+    <canvas id="canvas" width="200" height="150"> </canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+
+                ctx.fillStyle = "rgb(200,0,0)";
+                ctx.fillRect(10, 10, 50, 50);
+
+                ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+                ctx.fillRect(30, 30, 50, 50);
+            }
+        }
+        draw()
+    </script>
+
+
+    <!-- 
+    script : 자바 소스코드 시작 부분 비동기 여부 등도 설정 가능 추후 JS 수강이 배워야 할듯
+    noscript : JS미지원 환경에서 접속시 실행할 내용을 작성함, ex) 에러 안내문구 출력 등
+    -->
+
+</body>
+
+</html>

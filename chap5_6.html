@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="chap5_6.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- 
+        pre = 입력한 그대로 화면에 출력 (공백, 엔터 등)
+        소스코드내 탭도 공백으로 인식하므로 사용시 주의
+    -->
+    <pre>애국가 1절
+    잘보이나
+    </pre>
+
+    <!-- 
+        hr = 구분선을 추가하는 태그
+    -->
+    <hr>
+    <p>애국가 1절</p>
+
+    <!-- 
+    a 태그의 주요 속성
+        download = 해당 주소의 파일을 다운로드 가능
+        href = 페이지 링크
+        target = 링크 클릭시 열리는 방식 설정 _blank or _self
+        # 이용 = 아이디 이름을 통해 같은 페이지내에서도 바로 스크롤 이동 가능
+-->
+    <a href="https://google.com" target="_blank">to Google</a> <br><br>
+
+    <a href="./pre.css" download class="buttonLink"> down CSS</a> <br><br>
+
+    <a href="./img/test1.jpg" download> download image</a> <br><br>
+
+    <!-- 
+        ABBR : 문자에 마우스 오버시 툴팁 출력 
+    -->
+
+    <abbr title="Hypyer text markup language"> HTML 이란..!</abbr> <br><br>
+
+    <!-- 문자의 강조 태그
+        b, strong : 웹정근성에서 내용 강조를 위한 용도, 화면 출력도 기본 볼드 처리됨
+        MARK : 내용 강조 용도는 같으나, 화면 출력시 형광펜 처리 됨 
+        em : b, strong, mark로도 표현하기 어려운 강조 내용에 사용, 화면 출력시 이탤릭체 모양
+        i : 상기한 모든 태그로 표현 못하는 이모티콘, 이미지 등의 영역에 사용 화면 출력시 이탤릭체 모양
+
+        # 위 태그들의 기본 출력 모양은 CSS에서 font-style 옵션 변경을 통해 해제/변경 가능
+    -->
+    <b> 비태그 </b> <br>
+    <strong> 스트롱 태그 </strong> <br>
+    <mark> 마크는 형광펜 </mark> <br>
+    <em> 이엠은 이탤릭 모양 </em> <br>
+    <i class="fas fa-home"></i>
+    <i> I는 기타 내용 기호, 이모티콘 등 강조시 사용 </i> <br>
+
+    <p>
+        <code> print("hello world")</code> 코드 태그를 사용한 부분은 글씨체가 모노스페이스로 바뀐다.
+    </p> <br>
+
+    <!-- 
+        sup = 위첨자 표시 태그
+        sub = 아래첨자 표시 태그
+    -->
+    X<sup>4</sup> + Y<sup>2</sup>, H<sub>2</sub>O <br>
+
+    <!-- 
+        time = 특정 날짜나 시간을 나타내기 위한 태그, IE에서는 지원되지 않아 잘안씀
+    -->
+    <p>The Cure will be celebrating their 40th anniversary on <time datetime="2018-07-07">July 7</time> in London's Hyde
+        Park.</p>
+
+</body>
+
+</html>
