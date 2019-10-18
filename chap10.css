@@ -47,5 +47,19 @@ a:hover {
     ex1) .orange li:nth-child(2) => 클래스 밑의 li 중 가장 2번째 li에만 속성 적용
     ex2) .orange li:nth-child(2n) => 클래스 밑의 li 중 2의 배수 요소에만 적용 (2, 4...)
     ex3) .orange li:nth-child(n+3) => 클래스 밑의 3번째 이후 li에 모두 적용
-    
+
+:nth-of-type() = n번째 태그이면서 앞에 입력된 태그 값도 만족한 경우에만 적용
+    ex1) .fruits p:nth-of-type(1) => 클래스 밑에 첫번째 p태그에만 적용
+
+:not (아래 설명 참고)
+
 */
+
+.fruits2 {
+    font-size: 20px;
+}
+
+.fruits2 li:not(.orange) {
+    /*not 속성뒤에 제외할 클래스나 ID를 입력하면 해당 값만 제외됨 */
+    color: red;
+}
