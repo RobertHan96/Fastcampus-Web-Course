@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    font-size: 20;
+}
+
+.container {
+    width: 50vw;
+    /* 화면전체의 50%로 설정, 100이 최대 사이즈 */
+    height: 20vh;
+    background-color: red;
+}
+
+div {
+    border: 1px solid tomato;
+}
+
+.container2 {
+    /* 상위요소의 폰트사이즈를 나눈 값으로 적용 즉 600픽셀 */
+    width: 60em;
+    font-size: 10px;
+}
+
+.parent {
+    width: 30em;
+    font: 2em;
+}
+
+.child {
+    width: 15rem;
+    font-size: 2rem;
+}
