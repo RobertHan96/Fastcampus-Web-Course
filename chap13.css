@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.parent {
+    width: 400px;
+    height: 200px;
+    border: 4px solid red;
+}
+
+.child {
+    width: 100px;
+    height: 100px;
+    border: 4px solid;
+    margin: 50%;
+    /* 크기, 마진 등을 %로 적용하면 부모요소의 크기를 상속받기 때문에
+    100px 50%가 아니라 400px 50%로 들어가므로 주의 */
+
+}
+
+.parent2 {
+    width: 300px;
+    height: 200px;
+    background: teal;
+}
+
+.child2 {
+    width: 100px;
+    height: 100px;
+    background: tomato;
+    float: left;
+    margin: 20px;
+    margin-top: 50px;
+}
+
+.test1 {
+    /* 패딩 추가시 패딩 좌우/ 상하 값만큼 블록요소의 콘텐츠 크기가 증가함 */
+    width: 100px;
+    height: 100px;
+    background: teal;
+    padding: 20px;
+    box-sizing: border-box;
+    /* 위 옵션을 넣으면 패딩까지 감안해서 전체 콘텐츠의 크기를 증가시키 않아서 편함 */
+}
+
+.parent3 {
+    width: 300px;
+    height: 250px;
+    border: 4px solid red;
+    overflow: auto;
+    /* 기본은 visiable 임(잘리는 상태로 그대로 노출) 
+    auto, scrool : 잘리는 부분만 스크롤 생성 제일 많이 쓰는 속성
+    hidden : 내용 자체를 숨김 
+    */
+}
+
+.child3 {
+    width: 100px;
+    height: 100px;
+    background: tomato;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
