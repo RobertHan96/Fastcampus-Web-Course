@@ -1,0 +1,26 @@
+.box {
+    font-size: 40px;
+    height: 100px;
+    width: 100px;
+    background-color: tomato;
+    margin: 20px;
+    text-align: center;
+    float: left;
+}
+
+.newbox {
+    font-size: 40px;
+    height: 200px;
+    width: 200px;
+    background-color: tomato;
+    margin: 20px;
+    text-align: center;
+}
+
+/* float 수평쌓기 해제용 클래스 */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+
+}

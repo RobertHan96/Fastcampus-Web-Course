@@ -1,0 +1,38 @@
+.serif {
+    font-family: serif;
+}
+
+.sans-serif {
+    font-family: sans-serif;
+    /* 폰트는 사용자 컴퓨터에 있는 폰트를 가져오기 때문에 계열 하나만 지정해주면 위험함
+    보통 여러개의 폰트를 지정해서 만약 해당 폰트가 없으면 다음 순위 폰트가 적용되게 함 */
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+.cursive {
+    font-family: cursive;
+}
+
+.algin {
+    text-align: justify;
+}
+
+.deco {
+    text-decoration: line-through;
+    font-size: 30px;
+}
+
+.indent {
+    text-indent: 10px;
+}
+
+.wordspacing {
+    word-spacing: -10px;
+}
+
+.letterspacing {
+    letter-spacing: 5px;
+}
