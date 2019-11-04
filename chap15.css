@@ -25,14 +25,14 @@
 
 }
 
-.parent{ 
+.parent {
     width: 400px;
     height: 300px;
     border: 4px dashed lightcoral;
     position: relative;
 }
 
-.child { 
+.child {
     width: 150px;
     height: 100px;
     background: tomato;
@@ -45,9 +45,9 @@
     top, bottom, left, right 로 각각 방향으로부터의 거리 설정
     px, em 등이 아닌 %로도 값을 줄 수 있으며, 음수 값도 허용 함
     */
-} 
+}
 
-.box2 { 
+.box2 {
     font-size: 40px;
     height: 100px;
     width: 100px;
@@ -60,29 +60,29 @@
 
 }
 
-.relative { 
+.relative {
     position: relative;
     left: 150px;
     bottom: 40px;
 }
 
-.fixed{ 
+.fixed {
     position: fixed;
     bottom: 20px;
     right: 10px;
 
 }
 
-body{ 
+body {
     height: 4000px;
 }
 
-.section { 
+.section {
     height: 200px;
     border: 4px dashed lightgray;
 }
 
-.section h1 { 
+.section h1 {
     text-align: center;
     line-height: 2;
     font-size: 24px;

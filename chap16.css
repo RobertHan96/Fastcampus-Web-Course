@@ -1,0 +1,44 @@
+.box { 
+    background-image: 
+    url("https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png"),
+    url("https://s.pstatic.net/static/newsstand/up/2017/0424/nsd173111263.png")
+    ;
+    height: 400px;
+    width: 900px;
+    border: 2px dashed lightcoral;
+    background-repeat: no-repeat;
+    
+}
+
+.boxPostion { 
+    background-image: 
+    url("https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png") ;
+    height: 200px;
+    width: 500px;
+    border: 2px dashed lightcoral;
+    background-repeat: no-repeat; 
+    background-position: 100px 10px;
+}
+
+.scrool{ 
+    background-image: 
+    url("https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png") ;
+    height: 200px;
+    width: 400px;
+    border: 2px dashed gray;
+    background-attachment: fixed;
+
+}
+
+body{
+    height: 3300px;
+}
+
+.backsize { 
+    background-image: 
+    url("https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png") ;
+    height: 200px;
+    width: 100px;
+    border: 2px solid greenyellow;
+    background-size: contain ;
+}
