@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- 18강 주요 내용 : 애니메이션, 다단-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+    .box{ 
+        width: 100px;
+        height: 100px;
+        background: olive;
+    }
+    .box:hover { 
+        animation: first 2s infinite alternate;
+        /* @keyframes로 정의한 애니메이션을 animation 태그로 불러와서 손쉽게 사용 가능 */
+    }
+
+    @keyframes first {
+        0% { 
+            width: 100px;
+        }
+        100% { 
+            width: 500px;
+        }
+        
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+
+</body>
+
+</html>

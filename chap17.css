@@ -1,0 +1,100 @@
+body { 
+    height: 4000px;
+}
+.box1{ 
+    width: 100px;
+    height: 100px;
+    background: burlywood;
+    margin: 50px;
+    transition: 2s steps(4);
+}
+.box1:hover { 
+    width: 300px;
+    background: blue;
+}
+
+.box2{ 
+    width: 100px;
+    height: 100px;
+    background: burlywood;
+    margin: 50px;
+    transition: 2s 3s; 
+    /* 앞의 값은 트랜지션 지속값(duration), 뒷 값은 delay */
+}
+.box2:hover { 
+    width: 300px;
+    background: blue;
+}
+
+.box3 {
+    width: 100px;
+    height: 100px;
+    background: burlywood;
+    margin: 100px;
+    transition: 2s;
+
+    
+}
+
+.box3:hover{ 
+    transform: rotate(90deg), translate(100px, 100px);
+}
+
+.box4 {
+    width: 100px;
+    height: 100px;
+    background: burlywood;
+    margin: 100px;
+    transition: 2s;
+
+    
+}
+
+.box4:hover{ 
+    transform: scale(0.8);
+}
+
+.box5 {
+    width: 100px;
+    height: 100px;
+    background: burlywood;
+    margin: 100px;
+    transition: 2s;
+
+    
+}
+
+.box5:hover{ 
+    transform: skew(10deg, -20deg);
+}
+
+.box6 {
+    width: 100px;
+    height: 100px;
+    background: burlywood;
+    margin: 100px;
+    transform: perspective(500px) rotateX(30deg);
+
+    
+}
+
+
+.origin {
+    width: 300px;
+    height: 200px;
+    background: gray;
+    margin: 100px;
+    transition: 1s;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.visibile { 
+    width: 300px;
+    height: 150x;
+    border: 1px solid purple;
+    transition: 2s;
+    transform : perspective(300px) rotateY(150); 
+    backface-visibility: hidden;
+    
+}
