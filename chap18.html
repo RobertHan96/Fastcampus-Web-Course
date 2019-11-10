@@ -1,36 +1,169 @@
 <!DOCTYPE html>
 <!-- 18강 주요 내용 : 애니메이션, 다단-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style> 
-    .box{ 
-        width: 100px;
-        height: 100px;
-        background: olive;
-    }
-    .box:hover { 
-        animation: first 2s infinite alternate;
-        /* @keyframes로 정의한 애니메이션을 animation 태그로 불러와서 손쉽게 사용 가능 */
-    }
-
-    @keyframes first {
-        0% { 
+    <style>
+        .box {
             width: 100px;
+            height: 100px;
+            background: olive;
         }
-        100% { 
-            width: 500px;
+
+        .box:hover {
+            animation: first 2s infinite alternate;
+            /* @keyframes로 정의한 애니메이션을 animation 태그로 불러와서 손쉽게 사용 가능 */
+
+            /* animation 태그 종류 
+        animation안에 지속시간, 효과 등을 한번에 쓸수도 있지만 각각의 개별 태그에 지정할 수도 있음
+            1) animation-name: 사용할 키프레임 이름;
+            2) animation-duration : 효과 지속시간
+            3) animation-timing-function : linear, ease와 같이 효과 속도 조정
+            4) animation-delay : 효과 시작전 대기시간 부여 (단위 : s, ms) 
+            5) anmation-iteration : 효과 지속횟수 조정, infinite 속성 사용시 계속해서 효과 진행됨
+            6) animation-direction : 애니메이션 진행 반향 설정  
+                normal : 기본값으로 정방향으로 반복 
+                reverse : 역항뱡으로 반복 
+                alternate : 정방향 -> 역방향으로 애니메이션 반복 
+                alternate-reverse : 역방향 -> 정방향으로 애니메이션 반복
+            7) animation-fill-mode : 애니메이션 완료 후의 위치를 설정 
+                none : 애니메이션 후 초기 자리로 다시 복귀
+                forwards : 초기 자리에서 시작 후 끝위치에서 복귀하지 않고 끝남
+                both : 애니메이션 시작 위치에서 시작해서 복귀하지 않고 끝남 
+                backward : 초기 자리에서 시작 후 복귀하지 않고 끝남
+            8) animation-play-state : 애니메이션의 재생, 정지를 설정
+                running : 기본값이며 애니메이션이 동작함
+                pause : 애니메이션이 동작하지 않고 멈춤
+
+            
+        */
         }
-        
-    }
 
+        /* keyframes : 특정 시점(%)별로 원하는 효과를 지정할 수 있음, 중괄호로 구분 */
+        @keyframes first {
+            0% {
+                width: 100px;
+            }
 
+            100% {
+                width: 500px;
+            }
+
+        }
+
+        .move {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            border-radius: 10px;
+            animation: move 2s infinite linear;
+            animation-direction: reverse;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(100px, 0);
+            }
+
+            50% {
+                transform: translate(100px, 100px);
+            }
+
+            75% {
+                transform: translate(0, 100PX);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+        .fill-mode {
+            width: 100px;
+            height: 100px;
+            background: green;
+            border-radius: 10px;
+            animation: move-stop 2s 2s linear;
+            animation-fill-mode: both;
+        }
+
+        @keyframes move-stop {
+            0% {
+                transform: translate(100px, 100px);
+            }
+
+            100% {
+                transform: translate(300px, 100px);
+            }
+
+        }
+
+        .state {
+            width: 100px;
+            height: 100px;
+            background: tan;
+            border-radius: 10px;
+            margin-left: 20px;
+            animation: size-up 3s linear infinite alternate;
+
+        }
+
+        /* animation-play-state  예제, 마우스 오버시 애니메이션 중단 */
+        .state:hover {
+            animation-play-state: paused;
+            background: violet;
+        }
+
+        @keyframes size-up {
+            0% {
+                width: 100px;
+            }
+
+            100% {
+                width: 100%;
+            }
+
+        }
+
+        .columns { 
+            /* columns :  요소안에 다단을 구현할 수 있음 신문과 같은 텍스트 편집디자인 등에 활용됨
+                1) columns : 다단의 넓이, 다단의 개수 (화면 해상도가 넓이보다 적을 경우 다단개수가  알아서 줄어듬)
+                2) column-gap : 다단사이의 여백
+                3) column-rule : 다단 구분선의 스타일링 
+            */
+
+            text-align: justify;
+            columns: 200px 3;
+            column-gap: 20px;
+            column-rule: 2px double orangered;
+        }
     </style>
 </head>
+
 <body>
     <div class="box"></div>
+    <div class="move"></div>
+    <div class="fill-mode"> stop </div>
+    <div class="state"></div>
+    <div class="columns"> 
+        What is Lorem Ipsum?
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        
+        Why do we use it?
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+        
+        Where does it come from?
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" 
+
+    </div>
 
 
 </body>

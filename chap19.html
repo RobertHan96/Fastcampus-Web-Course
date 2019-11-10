@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- 19강 주요 내용 : 플랙스-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        /* flex : 수평 정렬을 원하는 콘텐츠를 감싸고 display: flex 값을 주면 하위 요소가 수평 정렬됨
+                float보다 쉽고, float 해제 없이 직관적으로 사용할 수 있음 */
+        .box-container { 
+            display: flex;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background: orchid;
+            border: 2px solid slategrey;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box-container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</body>
+
+</html>
