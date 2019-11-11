@@ -10,9 +10,10 @@
     <style>
         /* flex : 수평 정렬을 원하는 콘텐츠를 감싸고 display: flex 값을 주면 하위 요소가 수평 정렬됨
                 float보다 쉽고, float 해제 없이 직관적으로 사용할 수 있음 */
-        .box-container { 
+        .box-container {
             display: flex;
         }
+
         .box {
             width: 100px;
             height: 100px;
@@ -25,6 +26,47 @@
             font-weight: bold;
 
         }
+
+        /* 
+        flex의 주요 속성 
+            1) flex-diretion : row(행), columns(열) 방향으로 쌓는 방향 결정 (reverse를 붙여서 아이템 순서 역순 출력도 가능)
+            2) flex-wrap : flex 컨테이너 안의 아이템들을 여러줄 출력 여부 설정, 기본은 1줄(nowrap)로만 나오며, wrap을 넣으면 여러줄로 출력됨 (마찬가지로 reverse 가능) 
+            3) justify-content : 아이템들의 정렬 방식 설정 
+                flex-start : 주축 기준 왼쪽부터
+                flex-end : 주축 기준 오른쪽 부터
+                center : 주축 기준 정중앙
+                space-between : 양쪽 끝에 붙여서 아이템들을 자동으로 공백을 줘서 정렬 
+                space-around : 양쪽 끝부터 공백을 주기 시작해서 아이템들이 꽉차보이게 정렬 
+            4) 
+        
+        
+        */
+
+        .container {
+            border: 4px solid green;
+            display: flex;
+            flex-wrap: wrap-reverse;
+        }
+
+        .container .item {
+            width: 200px;
+            height: 200px;
+            background: tomato;
+            border: 4px dashed olive
+        }
+
+        .container-justify .item {
+            width: 200px;
+            height: 200px;
+            background: tomato;
+            border: 4px dashed olive
+        }
+
+        .container-justify {
+            border: 4px solid blue;
+            display: flex;
+            justify-content: space-between
+        }
     </style>
 
 </head>
@@ -34,6 +76,22 @@
         <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
+    </div>
+
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+
+    <div class="container-justify">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
     </div>
 </body>
 
