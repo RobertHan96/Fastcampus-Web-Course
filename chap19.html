@@ -28,17 +28,31 @@
         }
 
         /* 
-        flex의 주요 속성 
+        flex 관련 주요 속성 
             1) flex-diretion : row(행), columns(열) 방향으로 쌓는 방향 결정 (reverse를 붙여서 아이템 순서 역순 출력도 가능)
             2) flex-wrap : flex 컨테이너 안의 아이템들을 여러줄 출력 여부 설정, 기본은 1줄(nowrap)로만 나오며, wrap을 넣으면 여러줄로 출력됨 (마찬가지로 reverse 가능) 
-            3) justify-content : 아이템들의 정렬 방식 설정 
+            3) justify-content : 아이템들의 정렬 방식을 주축 기준으로 설정 
                 flex-start : 주축 기준 왼쪽부터
                 flex-end : 주축 기준 오른쪽 부터
                 center : 주축 기준 정중앙
                 space-between : 양쪽 끝에 붙여서 아이템들을 자동으로 공백을 줘서 정렬 
                 space-around : 양쪽 끝부터 공백을 주기 시작해서 아이템들이 꽉차보이게 정렬 
-            4) 
-        
+            4) algin-content : 아이템들의 정렬 방식을 교차축 기준으로 설정 
+                * 콘텐츠가 여러 줄(flex-wrap)일 경우에만 사용함
+                세부 속성은 justify-content랑 같음 steretch 만 추가됨 
+                stretch(기본값) : 아이템에 크기를 지정하지 않을 경우 컨테이너 크기에 맞게 크기를 자동 늘림
+            5) algin-items : 아이템들 교차축 정렬방식을 설정 
+                aligin-content와 동일하나, 여러줄이 아니여도 사용가능하므로 실제 자주 사용함
+                세부 속성은 algin-contet와 동일하나 baseline이라는 속성만 추가됨 
+                baseline : 아이템내의 문자열을 기준으로 정렬해줌 (크기가 달라도 문자만 찾아감) 
+                        아래 container-align 클래스 예시 참고) 
+            6) order : 플렉스 컨테이너내 아이템들의 정렬순서 지정 (음수~양수 범위) 
+                        숫자가 작을 수록 앞에 나오며, z-index 정렬 방식과 유사함 (기본값은 : 0)
+            7) flex-grow : 아이템의 너비의 증가 비율 설정 
+                컨테이너내 아이템들의 비율을 설정해서 컨테이너에 비례한 크기로 자동 변경함
+                container-grow 예제 참고
+         
+
         
         */
 
@@ -67,6 +81,59 @@
             display: flex;
             justify-content: space-between
         }
+
+        .container-align {
+            border: 4px solid black;
+            display: flex;
+            flex-wrap: wrap;
+            height: 400px;
+            align-items: baseline;
+        }
+
+        .align-content {
+            width: 120px;
+            height: 100px;
+            background: tomato;
+            border: 4px dashed olive ; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .align-content:nth-child(3) {
+            font-size: 40px;
+        }
+
+        .container-grow { 
+            border: 4px dashed wheat ; 
+            display: flex;
+
+        }
+        .container-grow > div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border: 4px dashed rgb(192, 192, 185) ; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    /* 총4의 컨테이너 너비를 1:1:2 비율로 가져감 (25%, 25%, 50%) 
+        width도 별개로 작동되기 때문에 항상 n배로 증가하는 개념은 아님, 가변요소에 주로 사용함
+    */
+        .container-grow> div:nth-child(1) { 
+            flex-grow: 1;
+        }
+
+        .container-grow> div:nth-child(2) { 
+            flex-grow: 1;
+        }
+
+        .container-grow> div:nth-child(3) { 
+            flex-grow: 2;
+        }
     </style>
 
 </head>
@@ -92,6 +159,20 @@
         <div class="item">C</div>
         <div class="item">D</div>
         <div class="item">E</div>
+    </div>
+
+    <div class="container-align">
+        <div class="align-content">A</div>
+        <div class="align-content">B</div>
+        <div class="align-content">C</div>
+        <div class="align-content">D</div>
+        <div class="align-content">E</div>
+    </div>
+
+    <div class="container-grow">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
     </div>
 </body>
 
